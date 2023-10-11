@@ -14,12 +14,12 @@ datafreq <- as.vector(data1table)
 datalabel<- names(data1table)
 
 
-pie(datafreq, main="awdadwa",col= rainbow(length(datalabel)), labels= piepercent)
-piepercent <- round((datafreq/sum(datafreq)*100),1)
-legend("topleft", datalabel, fill=rainbow(length(datalabel)))
+pie(datafreq, main="Pie Chart",col= rainbow(length(datalabel)), labels= piepercent)
+piepercent<- round((datafreq/sum(datafreq))*100,1)
+legend("topleft", datalabel, fill=rainbow(length(datalabel)), cex = 0.5)
 
 
-barplot(datafreq, main ="adad", names.arg= (datalabel),ylim=c(1,10))
+barplot(datafreq, main ="Frequent Using Barplot", names.arg= (datalabel),ylim=c(1,10))
 
 #
 #
@@ -111,6 +111,8 @@ transactiondata <- as(transactiondata, "transactions")
 #asc_rules
 asc_rules <- apriori(transactiondata, parameter=list(support=0.005, target = "frequent itemset"))
 
+#inspect 
+inspect(asc_rules)
 #growth
 dataframe2 <- data.frame(transid, transname)
 
